@@ -23,7 +23,7 @@ export default function Home() {
                         </div>
                         <h1 className="text-3xl font-bold text-gray-900 mb-4">저희 결혼합니다</h1>
                         <p className="text-gray-600">2025. 05. 24 SAT PM 12:30</p>
-                        <p className="text-gray-600">서울 그랜드 웨딩홀</p>
+                        {/* <p className="text-gray-600">서울 그랜드 웨딩홀</p> */}
                     </div>
                 </header>
 
