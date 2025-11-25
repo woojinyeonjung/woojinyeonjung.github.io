@@ -1,65 +1,164 @@
 import Image from "next/image";
 
+import Main from "@assets/8.jpg";
+
 export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    return (
+        <div className="min-h-screen bg-gray-100 flex justify-center items-start font-sans">
+            {/* [모바일 뷰] 실제 청첩장 내용이 들어가는 하얀색 영역 (최대 너비 448px = max-w-md) */}
+            <div className="w-full max-w-md bg-white min-h-screen shadow-xl overflow-hidden">
+                {/* 1. 메인 히어로 섹션 */}
+                <header className="relative h-[600px] w-full bg-gray-200">
+                    {/* 이미지가 들어갈 자리 (Placeholder) */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-300">
+                        <p className="text-gray-500">Main Photo Area</p>
+                        <Image src={Main} alt="main image" />
+                        {/* 실제 사용 시: <img src="/main.jpg" alt="Main" className="w-full h-full object-cover" /> */}
+                    </div>
+
+                    {/* 오버레이 텍스트 */}
+                    <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-white/90 to-transparent pt-20 pb-10 px-6 text-center">
+                        <div className="text-xl text-gray-800 tracking-widest mb-2">
+                            {/* KIM CHEOLSU <HeartIcon /> LEE YOUNGHEE */}
+                        </div>
+                        <h1 className="text-3xl font-bold text-gray-900 mb-4">저희 결혼합니다</h1>
+                        <p className="text-gray-600">2025. 05. 24 SAT PM 12:30</p>
+                        <p className="text-gray-600">서울 그랜드 웨딩홀</p>
+                    </div>
+                </header>
+
+                {/* 2. 초대 문구 섹션 */}
+                <section className="py-16 px-8 text-center flex flex-col items-center">
+                    <div className="text-sm text-red-400 mb-4 tracking-widest">INVITATION</div>
+                    <h2 className="text-2xl font-serif font-bold mb-8 text-gray-800 leading-relaxed">
+                        소중한 분들을
+                        <br />
+                        초대합니다
+                    </h2>
+                    <p className="text-gray-600 leading-loose text-sm whitespace-pre-wrap font-light">
+                        서로의 다름을 이해하고
+                        <br />
+                        같은 곳을 바라보며 걸어가려 합니다.
+                        <br />
+                        저희 두 사람의 새로운 시작을
+                        <br />
+                        함께 축복해 주시면 감사하겠습니다.
+                    </p>
+
+                    <div className="mt-10 w-full flex justify-center gap-8 text-gray-700">
+                        <div className="text-center">
+                            <span className="block text-sm text-gray-500">신랑</span>
+                            <strong className="text-lg">김철수</strong>
+                        </div>
+                        <div className="text-center">
+                            <span className="block text-sm text-gray-500">신부</span>
+                            <strong className="text-lg">이영희</strong>
+                        </div>
+                    </div>
+                </section>
+
+                <hr className="border-gray-100 mx-6" />
+
+                {/* 3. 캘린더 및 일시 */}
+                <section className="py-16 px-6 bg-stone-50 text-center">
+                    <h3 className="text-xl font-serif text-gray-800 mb-6">2025년 5월 24일</h3>
+                    <div className="bg-white p-6 rounded-lg shadow-sm inline-block max-w-xs w-full">
+                        {/* 달력 UI (간략화) */}
+                        <div className="grid grid-cols-7 gap-2 text-sm text-gray-600">
+                            <div className="text-red-400">일</div>
+                            <div>월</div>
+                            <div>화</div>
+                            <div>수</div>
+                            <div>목</div>
+                            <div>금</div>
+                            <div>토</div>
+                            {/* ... 날짜들 ... */}
+                            <div className="col-span-6"></div>
+                            <div className="bg-red-100 rounded-full text-red-500 font-bold">24</div>
+                        </div>
+                    </div>
+                    <div className="mt-8">
+                        <p className="text-lg font-bold text-gray-800">토요일 오후 12시 30분</p>
+                    </div>
+                </section>
+
+                {/* 4. 갤러리 (Grid Layout) */}
+                <section className="py-16 px-4">
+                    <h3 className="text-center font-serif text-xl mb-8">Gallery</h3>
+                    <div className="grid grid-cols-2 gap-2">
+                        <div className="bg-gray-200 h-40 rounded"></div>
+                        <div className="bg-gray-200 h-40 rounded"></div>
+                        <div className="bg-gray-200 h-40 rounded col-span-2"></div>
+                        <div className="bg-gray-200 h-40 rounded"></div>
+                        <div className="bg-gray-200 h-40 rounded"></div>
+                    </div>
+                </section>
+
+                {/* 5. 오시는 길 (Map Placeholder) */}
+                <section className="py-16 px-6 bg-gray-50">
+                    <h3 className="text-center font-serif text-xl mb-4">Location</h3>
+                    <p className="text-center text-gray-600 mb-6">
+                        서울 강남구 웨딩로 123, 그랜드 웨딩홀
+                    </p>
+
+                    {/* 지도 영역 */}
+                    <div className="w-full h-64 bg-gray-300 rounded-lg mb-4 flex items-center justify-center text-gray-500">
+                        네이버/카카오 지도 API 영역
+                    </div>
+
+                    <div className="flex gap-2 mt-4">
+                        <button className="flex-1 py-3 bg-yellow-300 text-black rounded text-sm font-bold hover:bg-yellow-400 transition">
+                            카카오네비
+                        </button>
+                        <button className="flex-1 py-3 bg-green-500 text-white rounded text-sm font-bold hover:bg-green-600 transition">
+                            네이버지도
+                        </button>
+                    </div>
+                </section>
+
+                {/* 6. 마음 전하실 곳 (Accordion) */}
+                <section className="py-16 px-6 mb-10">
+                    <button
+                        // onClick={() => setIsAccountOpen(!isAccountOpen)}
+                        className="w-full py-4 bg-gray-100 rounded-lg flex justify-between items-center px-6 text-gray-700 hover:bg-gray-200 transition"
+                    >
+                        <span className="font-bold">마음 전하실 곳</span>
+                        {/* <span>{isAccountOpen ? "▲" : "▼"}</span> */}
+                    </button>
+
+                    {/* {isAccountOpen && ( */}
+                    <div className="mt-2 bg-gray-50 p-6 rounded-lg border border-gray-100 animate-fade-in-down">
+                        <div className="flex justify-between items-center mb-3">
+                            <div>
+                                <p className="text-xs text-gray-500">신랑측 (김철수)</p>
+                                <p className="text-sm text-gray-800">국민 123-4567-8900</p>
+                            </div>
+                            <button className="text-xs bg-gray-200 px-2 py-1 rounded text-gray-600">
+                                복사
+                            </button>
+                        </div>
+                        <div className="flex justify-between items-center">
+                            <div>
+                                <p className="text-xs text-gray-500">신부측 (이영희)</p>
+                                <p className="text-sm text-gray-800">신한 110-123-456789</p>
+                            </div>
+                            <button className="text-xs bg-gray-200 px-2 py-1 rounded text-gray-600">
+                                복사
+                            </button>
+                        </div>
+                    </div>
+                    {/* )} */}
+                </section>
+
+                {/* Footer */}
+                <footer className="bg-gray-100 py-10 text-center text-xs text-gray-400">
+                    <p className="mb-2">Share this invitation</p>
+                    <button className="bg-yellow-300 text-black px-6 py-2 rounded-full font-bold text-sm mb-6">
+                        카카오톡 공유하기
+                    </button>
+                    <p>© 2025 Cheolsu & Younghee. All rights reserved.</p>
+                </footer>
+            </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+    );
 }
