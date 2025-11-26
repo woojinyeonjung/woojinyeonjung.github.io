@@ -12,7 +12,7 @@ export default function Home() {
                     {/* 이미지가 들어갈 자리 (Placeholder) */}
                     <div className="absolute inset-0 flex items-center justify-center bg-gray-300">
                         <p className="text-gray-500">Main Photo Area</p>
-                        <Image src={Main} alt="main image" />
+                        <Image src={`/woojinyeonjung.github.io/${Main}`} alt="main image" />
                         {/* 실제 사용 시: <img src="/main.jpg" alt="Main" className="w-full h-full object-cover" /> */}
                     </div>
 
