@@ -1,6 +1,11 @@
 self.__BUILD_MANIFEST = {
   "__rewrites": {
-    "afterFiles": [],
+    "afterFiles": [
+      {
+        "source": "/woojinyeonjung.github.io/images/:path*",
+        "destination": "/woojinyeonjung.github.io/woojinyeonjung.github.io/images/:path*"
+      }
+    ],
     "beforeFiles": [],
     "fallback": []
   },
