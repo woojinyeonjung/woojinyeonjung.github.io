@@ -1,6 +1,4 @@
-import Image from "next/image";
-
-import Main from "@assets/8.jpg";
+import Main from "@/components/Main";
 
 export default function Home() {
     return (
@@ -8,35 +6,7 @@ export default function Home() {
             {/* [모바일 뷰] 실제 청첩장 내용이 들어가는 하얀색 영역 (최대 너비 448px = max-w-md) */}
             <div className="w-full max-w-md bg-white min-h-screen shadow-xl overflow-hidden">
                 {/* 1. 메인 히어로 섹션 */}
-                <header className="relative h-[600px] w-full bg-gray-200">
-                    {/* 이미지가 들어갈 자리 (Placeholder) */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-300">
-                        <p className="text-gray-500">Main Photo Area</p>
-                        <Image
-                            src={Main}
-                            alt="main image"
-                            sizes="100vw"
-                            // 이미지를 전체 너비로 표시합니다.
-                            style={{
-                                width: "100%",
-                                height: "auto",
-                            }}
-                            priority
-                        />
-                        {/* 실제 사용 시: <img src="/main.jpg" alt="Main" className="w-full h-full object-cover" /> */}
-                    </div>
-
-                    {/* 오버레이 텍스트 */}
-                    <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-white/90 to-transparent pt-20 pb-10 px-6 text-center">
-                        <div className="text-xl text-gray-800 tracking-widest mb-2">
-                            {/* KIM CHEOLSU <HeartIcon /> LEE YOUNGHEE */}
-                        </div>
-                        <h1 className="text-3xl font-bold text-gray-900 mb-4">저희 결혼합니다</h1>
-                        <p className="text-gray-600">2025. 05. 24 SAT PM 12:30</p>
-                        {/* <p className="text-gray-600">서울 그랜드 웨딩홀</p> */}
-                    </div>
-                </header>
-
+                <Main />
                 {/* 2. 초대 문구 섹션 */}
                 <section className="py-16 px-8 text-center flex flex-col items-center">
                     <div className="text-sm text-red-400 mb-4 tracking-widest">INVITATION</div>
